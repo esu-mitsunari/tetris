@@ -18,12 +18,10 @@ public class Game1 : Game
     private Random _random = new Random();
     private int _previousMinoType = -1;
 
-    private Texture2D Background, WhiteBlock, UIFrame;
+    private Texture2D WhiteBlock, UIFrame;
 
     private Color[] color;
     private Board gameBoard;
-
-    private readonly Rectangle BackgroundRectangle = new Rectangle(0, 0, 1280, 720);
 
     private double _dropTimer = 0;
     private double _dropInterval = 1.0;
@@ -66,7 +64,6 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        Background = Content.Load<Texture2D>("images/Background");
         WhiteBlock = Content.Load<Texture2D>("images/WhiteBlock");
         UIFrame = Content.Load<Texture2D>("images/UIFrame");
 
@@ -169,8 +166,6 @@ public class Game1 : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
         Matrix shakeMatrix = Matrix.CreateTranslation(_shakeOffset.X, _shakeOffset.Y, 0);
         _spriteBatch.Begin(transformMatrix: shakeMatrix);
-
-        _spriteBatch.Draw(Background, BackgroundRectangle, Color.White);
 
         _spriteBatch.Draw(UIFrame, Vector2.Zero, Color.White);
 
